@@ -6,15 +6,14 @@ const cors = require("cors")
 app.use(express.json())
 app.use(
   cors({
-    origin: "http://127.0.0.1:5500",
+    origin: "https://texts.services/",
   })
 )
 
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 
 const storeItems = new Map([
-  [1, { priceInCents: 10, name: "Learn React Today" }],
-  [2, { priceInCents: 20, name: "Learn CSS Today" }],
+  [1, { priceInCents: .05, name: "Texts" }],
 ])
 
 app.post("/create-checkout-session", async (req, res) => {
